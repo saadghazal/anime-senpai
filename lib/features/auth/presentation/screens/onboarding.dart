@@ -1,3 +1,4 @@
+import 'package:anime_senpai/features/auth/presentation/screens/login.dart';
 import 'package:anime_senpai/main.dart';
 import 'package:anime_senpai/theme/app_button.dart';
 import 'package:anime_senpai/theme/height_space.dart';
@@ -97,7 +98,14 @@ class Onboarding extends StatelessWidget {
             height: 5.85.h,
             width: MediaQuery.maybeOf(context)!.size.width / 1.4,
           ),
-          whenButtonClicked: () {},
+          whenButtonClicked: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Login(),
+              ),
+            );
+          },
         ),
       ],
     );
