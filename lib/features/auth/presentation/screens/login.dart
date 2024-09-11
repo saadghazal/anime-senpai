@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
       ),
       buildLoginFieldsAndForgetPassword(),
       SizedBox(
-        height: 2.35.h, // 15
+        height: 2.35.h, // 20
       ),
       buildLoginButton(),
       SizedBox(
@@ -193,10 +193,7 @@ class LoginScreen extends StatelessWidget {
         text: ' Sign Up',
         recognizer: TapGestureRecognizer()
           ..onTap = () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SignUpScreen()),
-            );
+            navigateToSignUp(context);
           },
         style: const TextStyle(
           fontWeight: FontWeight.w600,
@@ -204,5 +201,12 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     ];
+  }
+
+  Future<dynamic> navigateToSignUp(BuildContext context) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUpScreen()),
+    );
   }
 }

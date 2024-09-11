@@ -14,6 +14,7 @@ class AppPasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       cursorColor: AppColors.brightRed,
+      obscureText: true,
       decoration: InputDecoration(
         hintText: placeholder,
         hintStyle: TextStyle(
