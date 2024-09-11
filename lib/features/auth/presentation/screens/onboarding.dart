@@ -9,8 +9,8 @@ import '../../../../theme/app_colors.dart';
 import '../../../../theme/logo_widget.dart';
 import '../widgets/auth_method_button.dart';
 
-class Onboarding extends StatelessWidget {
-  const Onboarding({super.key});
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +88,7 @@ class Onboarding extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Login(),
+            builder: (context) => LoginScreen(),
           ),
         );
       },

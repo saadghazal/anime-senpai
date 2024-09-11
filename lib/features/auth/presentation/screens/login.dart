@@ -1,4 +1,5 @@
 import 'package:anime_senpai/features/auth/presentation/screens/onboarding.dart';
+import 'package:anime_senpai/features/auth/presentation/screens/sign_up.dart';
 import 'package:anime_senpai/theme/app_button.dart';
 import 'package:anime_senpai/theme/app_colors.dart';
 import 'package:anime_senpai/theme/height_space.dart';
@@ -9,41 +10,45 @@ import 'package:sizer/sizer.dart';
 import '../../../../theme/app_password_field.dart';
 import '../../../../theme/app_text_field.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: buildScreenBody(),
+      body: buildScreenBody(context),
     );
   }
 
-  SafeArea buildScreenBody() {
+  SafeArea buildScreenBody(BuildContext context) {
     return SafeArea(
       bottom: false,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            buildBackButtonAndTitle(),
-            SizedBox(
-              height: (2 * 2.35).h, // 40
-            ),
-            buildLoginFieldsAndForgetPassword(),
-            SizedBox(
-              height: 2.35.h, // 15
-            ),
-            buildLoginButton(),
-            SizedBox(
-              height: 2.35.h,
-            ),
-            buildHasNoAccount(),
-          ],
+          children: buildScreenBodyElements(context),
         ),
       ),
     );
+  }
+
+  List<Widget> buildScreenBodyElements(BuildContext context) {
+    return [
+      buildBackButtonAndTitle(),
+      SizedBox(
+        height: (2 * 2.35).h, // 40
+      ),
+      buildLoginFieldsAndForgetPassword(),
+      SizedBox(
+        height: 2.35.h, // 15
+      ),
+      buildLoginButton(),
+      SizedBox(
+        height: 2.35.h,
+      ),
+      buildHasNoAccount(context),
+    ];
   }
 
   Column buildBackButtonAndTitle() {
@@ -165,7 +170,7 @@ class Login extends StatelessWidget {
     );
   }
 
-  Center buildHasNoAccount() {
+  Center buildHasNoAccount(BuildContext context) {
     return Center(
       child: RichText(
         text: TextSpan(
@@ -173,20 +178,26 @@ class Login extends StatelessWidget {
             fontFamily: 'Raleway',
             color: Colors.black,
           ),
-          children: buildHasNoAccountTexts(),
+          children: buildHasNoAccountTexts(context),
         ),
       ),
     );
   }
 
-  List<InlineSpan> buildHasNoAccountTexts() {
+  List<InlineSpan> buildHasNoAccountTexts(BuildContext context) {
     return [
       const TextSpan(
         text: 'Don\'t have an account?',
       ),
       TextSpan(
         text: ' Sign Up',
-        recognizer: TapGestureRecognizer()..onTap = () {},
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SignUpScreen()),
+            );
+          },
         style: const TextStyle(
           fontWeight: FontWeight.w600,
           color: AppColors.brightRed,

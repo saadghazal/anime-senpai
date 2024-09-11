@@ -22,8 +22,9 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Raleway',
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
+            scaffoldBackgroundColor: Colors.white,
           ),
-          home: Onboarding(),
+          home: OnboardingScreen(),
         );
       },
     );
