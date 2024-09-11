@@ -48,6 +48,7 @@ class Login extends StatelessWidget {
 
   Column buildBackButtonAndTitle() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         BackButton(),
         HeightSpace(
@@ -72,54 +73,85 @@ class Login extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Email',
-            style: TextStyle(
-              fontSize: 13.5,
-            ),
-          ),
-          SizedBox(
-            height: 1.1.h, // 5
-          ),
-          const AppTextField(
-            placeholder: 'Enter your email',
-          ),
-          SizedBox(
-            height: 1.77.h, // 15
-          ),
-          const Text(
-            'Password',
-            style: TextStyle(
-              fontSize: 13.5,
-            ),
-          ),
-          SizedBox(
-            height: 1.1.h, // 5
-          ),
-          const AppPasswordField(
-            placeholder: 'Enter your password',
-          ),
+          buildEmailAndPasswordFields(),
           SizedBox(
             height: (1.1 * 2).h, // 5
           ),
-          const Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              'Forget Password?',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: AppColors.brightRed,
-              ),
-            ),
-          ),
+          buildForgetPassword(),
         ],
+      ),
+    );
+  }
+
+  Column buildEmailAndPasswordFields() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        buildEmailField(),
+        SizedBox(
+          height: 1.77.h, // 15
+        ),
+        buildPasswordField(),
+      ],
+    );
+  }
+
+  Column buildPasswordField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Password',
+          style: TextStyle(
+            fontSize: 13.5,
+          ),
+        ),
+        SizedBox(
+          height: 1.1.h, // 5
+        ),
+        const AppPasswordField(
+          placeholder: 'Enter your password',
+        ),
+      ],
+    );
+  }
+
+  Column buildEmailField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Email',
+          style: TextStyle(
+            fontSize: 13.5,
+          ),
+        ),
+        SizedBox(
+          height: 1.1.h, // 5
+        ),
+        const AppTextField(
+          placeholder: 'Enter your email',
+        ),
+      ],
+    );
+  }
+
+  Align buildForgetPassword() {
+    return const Align(
+      alignment: Alignment.centerRight,
+      child: Text(
+        'Forget Password?',
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          color: AppColors.brightRed,
+        ),
       ),
     );
   }
 
   Padding buildLoginButton() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppButton(
         appButtonStyle: AppButtonStyle(
           backgroundColor: AppColors.brightRed,
