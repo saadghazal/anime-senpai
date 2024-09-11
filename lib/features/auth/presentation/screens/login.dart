@@ -173,21 +173,25 @@ class Login extends StatelessWidget {
             fontFamily: 'Raleway',
             color: Colors.black,
           ),
-          children: [
-            const TextSpan(
-              text: 'Don\'t have an account?',
-            ),
-            TextSpan(
-              text: ' Sign Up',
-              recognizer: TapGestureRecognizer()..onTap = () {},
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                color: AppColors.brightRed,
-              ),
-            ),
-          ],
+          children: buildHasNoAccountTexts(),
         ),
       ),
     );
+  }
+
+  List<InlineSpan> buildHasNoAccountTexts() {
+    return [
+      const TextSpan(
+        text: 'Don\'t have an account?',
+      ),
+      TextSpan(
+        text: ' Sign Up',
+        recognizer: TapGestureRecognizer()..onTap = () {},
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          color: AppColors.brightRed,
+        ),
+      ),
+    ];
   }
 }

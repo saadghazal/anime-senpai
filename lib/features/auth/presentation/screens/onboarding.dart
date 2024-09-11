@@ -53,61 +53,81 @@ class Onboarding extends StatelessWidget {
 
   Column buildAuthButtons(BuildContext context) {
     return Column(
-      children: [
-        AuthMethodButton(
-          buttonContent: const AuthButtonContent(
-            backgroundColor: Colors.white,
-            textColor: Colors.black,
-            label: 'Sign in with Google',
-            iconPath: 'assets/icons/google.png',
+      children: getAuthButtons(context),
+    );
+  }
+
+  List<Widget> getAuthButtons(BuildContext context) {
+    return [
+      buildGoogleAuthButton(),
+      HeightSpace(
+        space: 1.77.h, // 15 Height
+      ),
+      buildFacebookAuthButton(),
+      HeightSpace(
+        space: 1.77.h,
+      ),
+      buildAppleAuthButton(),
+      HeightSpace(
+        space: 1.77.h,
+      ),
+      buildEmailAndPasswordAuthButton(context),
+    ];
+  }
+
+  AppButton buildEmailAndPasswordAuthButton(BuildContext context) {
+    return AppButton(
+      appButtonStyle: AppButtonStyle(
+        backgroundColor: AppColors.brightRed,
+        textColor: Colors.white,
+        text: 'Email and Password',
+        height: 5.85.h,
+        width: MediaQuery.maybeOf(context)!.size.width / 1.4,
+      ),
+      whenButtonClicked: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Login(),
           ),
-          whenButtonClicked: () {},
-        ),
-        HeightSpace(
-          space: 1.77.h, // 15 Height
-        ),
-        AuthMethodButton(
-          buttonContent: const AuthButtonContent(
-            backgroundColor: Color(0xFF1877F2),
-            textColor: Colors.white,
-            label: 'Sign in with Facebook',
-            iconPath: 'assets/icons/facebook.png',
-          ),
-          whenButtonClicked: () {},
-        ),
-        HeightSpace(
-          space: 1.77.h,
-        ),
-        AuthMethodButton(
-          buttonContent: const AuthButtonContent(
-            backgroundColor: Colors.black,
-            textColor: Colors.white,
-            label: 'Sign in with Apple',
-            iconPath: 'assets/icons/apple.png',
-          ),
-          whenButtonClicked: () {},
-        ),
-        HeightSpace(
-          space: 1.77.h,
-        ),
-        AppButton(
-          appButtonStyle: AppButtonStyle(
-            backgroundColor: AppColors.brightRed,
-            textColor: Colors.white,
-            text: 'Email and Password',
-            height: 5.85.h,
-            width: MediaQuery.maybeOf(context)!.size.width / 1.4,
-          ),
-          whenButtonClicked: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Login(),
-              ),
-            );
-          },
-        ),
-      ],
+        );
+      },
+    );
+  }
+
+  AuthMethodButton buildAppleAuthButton() {
+    return AuthMethodButton(
+      buttonContent: const AuthButtonContent(
+        backgroundColor: Colors.black,
+        textColor: Colors.white,
+        label: 'Sign in with Apple',
+        iconPath: 'assets/icons/apple.png',
+      ),
+      whenButtonClicked: () {},
+    );
+  }
+
+  AuthMethodButton buildFacebookAuthButton() {
+    return AuthMethodButton(
+      buttonContent: const AuthButtonContent(
+        backgroundColor: Color(0xFF1877F2),
+        textColor: Colors.white,
+        label: 'Sign in with Facebook',
+        iconPath: 'assets/icons/facebook.png',
+      ),
+      whenButtonClicked: () {},
+    );
+  }
+
+  AuthMethodButton buildGoogleAuthButton() {
+    return AuthMethodButton(
+      buttonContent: const AuthButtonContent(
+        backgroundColor: Colors.white,
+        textColor: Colors.black,
+        label: 'Sign in with Google',
+        iconPath: 'assets/icons/google.png',
+      ),
+      whenButtonClicked: () {},
     );
   }
 }
