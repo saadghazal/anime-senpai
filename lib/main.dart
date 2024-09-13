@@ -1,4 +1,5 @@
 import 'package:anime_senpai/features/auth/presentation/screens/onboarding.dart';
+import 'package:anime_senpai/features/home/presentation/screens/home_screen.dart';
 import 'package:anime_senpai/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             scaffoldBackgroundColor: Colors.white,
           ),
-          home: OnboardingScreen(),
+          home: HomeScreen(),
         );
       },
     );
