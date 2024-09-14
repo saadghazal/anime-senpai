@@ -14,7 +14,7 @@ class LogoWidget extends StatelessWidget {
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: AppColors.deepMaroon,
+        color: AppColors.darkGreen,
       ),
       child: const Text(
         'Anime\nSenpai',

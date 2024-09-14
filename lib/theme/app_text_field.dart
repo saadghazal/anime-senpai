@@ -12,7 +12,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: AppColors.brightRed,
+      cursorColor: AppColors.brightGreen,
       decoration: InputDecoration(
         hintText: placeholder,
         hintStyle: TextStyle(

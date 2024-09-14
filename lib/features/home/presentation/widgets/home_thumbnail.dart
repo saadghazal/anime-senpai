@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -21,9 +20,8 @@ class HomeThumbnail extends StatelessWidget {
 
   Column buildThumbnailContent() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        buildSearchIcon(),
-        const Spacer(),
         buildGenresOfThumbnailAnime(),
         buildThumbnailActionsFooter(),
       ],
@@ -55,7 +53,7 @@ class HomeThumbnail extends StatelessWidget {
   AppButton buildPlayAction() {
     return AppButton(
       appButtonStyle: AppButtonStyle(
-        backgroundColor: AppColors.brightRed,
+        backgroundColor: AppColors.brightGreen,
         textColor: Colors.white,
         text: 'Play',
         height: 5.85.h,
@@ -93,7 +91,7 @@ class HomeThumbnail extends StatelessWidget {
     return const BoxDecoration(
       gradient: LinearGradient(
         colors: [
-          AppColors.deepNavyBlue,
+          AppColors.deepGreen,
           Colors.transparent,
         ],
         begin: Alignment.bottomCenter,
@@ -134,26 +132,11 @@ class HomeThumbnail extends StatelessWidget {
     );
   }
 
-  Align buildSearchIcon() {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: SafeArea(
-        bottom: false,
-        child: Icon(
-          Icons.search,
-          size: 26.4.sp, // 35
-          color: Colors.white,
-        ),
-      ),
-    );
-  }
-
   BoxDecoration buildThumbnailAnimeCover() {
     return const BoxDecoration(
       image: DecorationImage(
         image: AssetImage('assets/images/attack.jpg'),
         fit: BoxFit.cover,
-        opacity: 0.85,
       ),
     );
   }

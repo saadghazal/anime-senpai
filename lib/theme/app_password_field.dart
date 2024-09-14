@@ -13,7 +13,7 @@ class AppPasswordField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: AppColors.brightRed,
+      cursorColor: AppColors.brightGreen,
       obscureText: true,
       decoration: InputDecoration(
         hintText: placeholder,

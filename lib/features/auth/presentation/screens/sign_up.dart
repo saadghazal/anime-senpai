@@ -48,7 +48,7 @@ class SignUpScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppButton(
         appButtonStyle: AppButtonStyle(
-          backgroundColor: AppColors.brightRed,
+          backgroundColor: AppColors.brightGreen,
           textColor: Colors.white,
           text: 'Sign Up',
           height: 5.85.h,
@@ -122,7 +122,7 @@ class SignUpScreen extends StatelessWidget {
       child: const Text(
         'Upload Picture',
         style: TextStyle(
-          color: AppColors.brightRed,
+          color: AppColors.brightGreen,
         ),
       ),
     );
@@ -132,7 +132,7 @@ class SignUpScreen extends StatelessWidget {
     return const Center(
       child: CircleAvatar(
         radius: 28,
-        backgroundColor: AppColors.brightRed,
+        backgroundColor: AppColors.brightGreen,
         child: Icon(
           Icons.cloud_upload_rounded,
           color: Colors.white,

@@ -12,14 +12,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.deepNavyBlue,
-      body: CustomScrollView(
-        slivers: [
-          buildScreenAppBar(),
-          buildScreenContent(),
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        buildScreenAppBar(),
+        buildScreenContent(),
+      ],
     );
   }
 
@@ -56,7 +53,25 @@ class HomeScreen extends StatelessWidget {
       expandedHeight: 53.h,
       flexibleSpace: HomeThumbnail(),
       collapsedHeight: 53.h,
-      floating: true,
+      stretch: true,
+      actions: [
+        buildSearchIcon(),
+      ],
     );
   }
+}
+
+Align buildSearchIcon() {
+  return Align(
+    alignment: Alignment.centerRight,
+    child: SafeArea(
+      bottom: false,
+      child: IconButton(
+        onPressed: () {},
+        icon: Icon(Icons.search),
+        iconSize: 24.sp, // 35
+        color: Colors.white,
+      ),
+    ),
+  );
 }

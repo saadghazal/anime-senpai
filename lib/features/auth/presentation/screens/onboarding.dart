@@ -30,7 +30,7 @@ class OnboardingScreen extends StatelessWidget {
 
   BoxDecoration buildScreenBackground() {
     return const BoxDecoration(
-      color: AppColors.deepNavyBlue,
+      color: AppColors.deepGreen,
       image: DecorationImage(
         image: AssetImage('assets/images/onboarding_background.png'),
       ),
@@ -78,7 +78,7 @@ class OnboardingScreen extends StatelessWidget {
   AppButton buildEmailAndPasswordAuthButton(BuildContext context) {
     return AppButton(
       appButtonStyle: AppButtonStyle(
-        backgroundColor: AppColors.brightRed,
+        backgroundColor: AppColors.brightGreen,
         textColor: Colors.white,
         text: 'Email and Password',
         height: 5.85.h,
