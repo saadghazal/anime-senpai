@@ -2,68 +2,41 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class AnimesGrid extends StatelessWidget {
-  const AnimesGrid({
+class AnimesList extends StatelessWidget {
+  const AnimesList({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-      ),
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: buildGridDelegateConfigurations(),
+    return SizedBox(
+      height: 17.26.h,
+      width: double.maxFinite,
+      child: buildAnimesList(),
+    );
+  }
+
+  ListView buildAnimesList() {
+    return ListView.separated(
+      // shrinkWrap: true,
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return buildAnimeGridItem();
+        return buildAnimeCover();
       },
-      itemCount: 15,
+      separatorBuilder: buildItemsSeparator,
+      itemCount: 8,
     );
   }
 
-  SliverGridDelegateWithFixedCrossAxisCount buildGridDelegateConfigurations() {
-    return SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 3,
-      crossAxisSpacing: 23,
-      mainAxisSpacing: 20,
-      childAspectRatio: 26.21.w / 20.78.h, // 103/177 ,
-    );
-  }
-
-  Column buildAnimeGridItem() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: buildAnimeGridItemContent(),
-    );
-  }
-
-  List<Widget> buildAnimeGridItemContent() {
-    return [
-      buildAnimeCover(),
-      const SizedBox(
-        height: 5,
-      ),
-      buildAnimeName()
-    ];
-  }
-
-  Flexible buildAnimeName() {
-    return const Flexible(
-      child: Text(
-        'Attack on Titan',
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: Colors.white,
-        ),
-      ),
-    );
-  }
+  Widget buildItemsSeparator(context, index) => SizedBox(
+        width: 8,
+      );
 
   Container buildAnimeCover() {
     return Container(
       height: 17.26.h, // 147
+      width: 103,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         image: const DecorationImage(

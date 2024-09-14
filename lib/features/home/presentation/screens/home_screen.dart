@@ -1,10 +1,7 @@
-import 'package:anime_senpai/features/auth/presentation/screens/login.dart';
-import 'package:anime_senpai/theme/app_button.dart';
-import 'package:anime_senpai/theme/app_colors.dart';
+import 'package:anime_senpai/features/home/presentation/widgets/animes_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../widgets/animes_grid.dart';
 import '../widgets/home_thumbnail.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,11 +21,14 @@ class HomeScreen extends StatelessWidget {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
+          SizedBox(
+            height: 10,
+          ),
           buildFreeToWatchText(),
           const SizedBox(
-            height: 28,
+            height: 20,
           ),
-          const AnimesGrid()
+          AnimesList(),
         ],
       ),
     );
@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Text(
-        'Free to watch',
+        'Popular Animes',
         style: TextStyle(
           color: Colors.white,
           fontSize: 20,
