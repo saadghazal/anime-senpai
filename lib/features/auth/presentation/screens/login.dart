@@ -1,10 +1,13 @@
 import 'package:anime_senpai/features/auth/presentation/screens/onboarding.dart';
 import 'package:anime_senpai/features/auth/presentation/screens/sign_up.dart';
+import 'package:anime_senpai/features/home/presentation/screens/main_screen.dart';
+import 'package:anime_senpai/features/home/presentation/state_managment/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import 'package:anime_senpai/theme/app_button.dart';
 import 'package:anime_senpai/theme/app_colors.dart';
 import 'package:anime_senpai/theme/height_space.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../theme/app_password_field.dart';
@@ -43,7 +46,7 @@ class LoginScreen extends StatelessWidget {
       SizedBox(
         height: 2.35.h, // 20
       ),
-      buildLoginButton(),
+      buildLoginButton(context),
       SizedBox(
         height: 2.35.h,
       ),
@@ -154,7 +157,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Padding buildLoginButton() {
+  Padding buildLoginButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppButton(
@@ -165,7 +168,26 @@ class LoginScreen extends StatelessWidget {
           height: 5.85.h,
           width: double.maxFinite,
         ),
-        whenButtonClicked: () {},
+        whenButtonClicked: () {
+          navigateToMainScreen(context);
+        },
+      ),
+    );
+  }
+
+  Future<dynamic> navigateToMainScreen(BuildContext context) {
+    return Navigator.pushAndRemoveUntil(
+      context,
+      buildMainScreen(),
+      (_) => false,
+    );
+  }
+
+  MaterialPageRoute<dynamic> buildMainScreen() {
+    return MaterialPageRoute(
+      builder: (context) => BlocProvider(
+        create: (context) => BottomNavBarCubit(),
+        child: MainScreen(),
       ),
     );
   }

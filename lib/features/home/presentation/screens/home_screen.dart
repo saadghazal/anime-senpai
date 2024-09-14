@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           buildFreeToWatchText(),

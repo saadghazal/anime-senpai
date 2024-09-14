@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   sizer: ^3.0.3
   ionicons: ^0.2.2
+  equatable: ^2.0.5
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
 
 dev_dependencies:
   flutter_test:

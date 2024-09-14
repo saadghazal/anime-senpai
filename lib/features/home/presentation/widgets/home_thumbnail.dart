@@ -56,8 +56,9 @@ class HomeThumbnail extends StatelessWidget {
         backgroundColor: AppColors.brightGreen,
         textColor: Colors.white,
         text: 'Play',
-        height: 5.85.h,
+        height: 5.11.h,
         width: 30.6.w,
+        borderRadius: 10,
       ),
       whenButtonClicked: () {},
     );
