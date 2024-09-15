@@ -5,8 +5,10 @@ import 'package:anime_senpai/features/home/presentation/state_managment/bottom_n
 import 'package:anime_senpai/theme/app_button.dart';
 import 'package:anime_senpai/theme/app_colors.dart';
 import 'package:anime_senpai/theme/height_space.dart';
+import 'package:anime_senpai/theme/status_bar_style.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
@@ -20,7 +22,10 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: buildScreenBody(context),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: StatusBarStyle.darkStatusBarForBrighterScreens(),
+        child: buildScreenBody(context),
+      ),
     );
   }
 

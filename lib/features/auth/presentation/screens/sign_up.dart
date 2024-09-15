@@ -1,11 +1,13 @@
 import 'package:anime_senpai/theme/app_colors.dart';
 import 'package:anime_senpai/theme/app_password_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../theme/app_button.dart';
 import '../../../../theme/app_text_field.dart';
 import '../../../../theme/height_space.dart';
+import '../../../../theme/status_bar_style.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -13,8 +15,10 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: buildScreenBody(),
-    );
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+      value: StatusBarStyle.darkStatusBarForBrighterScreens(),
+      child: buildScreenBody(),
+    ));
   }
 
   SafeArea buildScreenBody() {

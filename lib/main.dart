@@ -2,7 +2,9 @@ import 'package:anime_senpai/features/auth/presentation/screens/onboarding.dart'
 import 'package:anime_senpai/features/home/presentation/screens/home_screen.dart';
 import 'package:anime_senpai/features/home/presentation/screens/main_screen.dart';
 import 'package:anime_senpai/theme/app_colors.dart';
+import 'package:anime_senpai/theme/status_bar_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -17,16 +19,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (BuildContext, Orientation, ScreenType) {
-        return MaterialApp(
-          title: 'Anime Senpai',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            fontFamily: 'Raleway',
-            // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-            scaffoldBackgroundColor: Colors.white,
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: StatusBarStyle.lightStatusBarForDarkerScreens(),
+          child: MaterialApp(
+            title: 'Anime Senpai',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              fontFamily: 'Raleway',
+              // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+              scaffoldBackgroundColor: Colors.white,
+            ),
+            home: OnboardingScreen(),
           ),
-          home: OnboardingScreen(),
         );
       },
     );

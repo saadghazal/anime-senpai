@@ -44,7 +44,10 @@ class MainBottomNavBar extends StatelessWidget {
     );
   }
 
-  IconButton buildProfileNavItem(BottomNavBarState state, BuildContext context) {
+  IconButton buildProfileNavItem(
+    BottomNavBarState state,
+    BuildContext context,
+  ) {
     return isProfileActive(state)
         ? buildActiveNavItem(icon: Ionicons.person)
         : buildInactiveNavItem(
@@ -159,7 +162,7 @@ class MainBottomNavBar extends StatelessWidget {
     return BoxDecoration(
       border: Border.all(color: AppColors.brightGreen),
       borderRadius: BorderRadius.circular(25),
-      color: Color(0xFF081C15),
+      color: AppColors.deepGreen,
       boxShadow: buildDecorationShadows(),
     );
   }
