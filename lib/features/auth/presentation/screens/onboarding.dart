@@ -33,6 +33,7 @@ class OnboardingScreen extends StatelessWidget {
       color: AppColors.deepGreen,
       image: DecorationImage(
         image: AssetImage('assets/images/onboarding_background.png'),
+        fit: BoxFit.cover,
       ),
     );
   }

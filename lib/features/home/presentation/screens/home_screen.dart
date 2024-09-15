@@ -1,4 +1,4 @@
-import 'package:anime_senpai/features/home/presentation/widgets/animes_grid.dart';
+import 'package:anime_senpai/features/home/presentation/widgets/animes_list.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

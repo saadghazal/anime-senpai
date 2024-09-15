@@ -15,10 +15,11 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: AnnotatedRegion<SystemUiOverlayStyle>(
-      value: StatusBarStyle.darkStatusBarForBrighterScreens(),
-      child: buildScreenBody(),
-    ));
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: StatusBarStyle.darkStatusBarForBrighterScreens(),
+        child: buildScreenBody(),
+      ),
+    );
   }
 
   SafeArea buildScreenBody() {

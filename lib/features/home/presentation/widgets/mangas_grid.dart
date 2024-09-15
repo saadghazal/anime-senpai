@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:sizer/sizer.dart';
 
-class AnimesGrid extends StatelessWidget {
-  const AnimesGrid({super.key});
+class MangasGrid extends StatelessWidget {
+  const MangasGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class AnimesGrid extends StatelessWidget {
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-              image: AssetImage('assets/images/attack.jpg'),
+            image: const DecorationImage(
+              image: AssetImage('assets/images/naruto_manga.jpg'),
               fit: BoxFit.cover,
             ),
           ),
