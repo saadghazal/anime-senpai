@@ -1,4 +1,3 @@
-import 'package:anime_senpai/features/auth/presentation/screens/login.dart';
 import 'package:anime_senpai/features/home/presentation/widgets/animes_grid.dart';
 import 'package:anime_senpai/features/home/presentation/widgets/mangas_grid.dart';
 import 'package:anime_senpai/theme/app_colors.dart';
@@ -15,25 +14,27 @@ class LibraryScreen extends StatefulWidget {
 }
 
 class _LibraryScreenState extends State<LibraryScreen> with TickerProviderStateMixin {
-  late TabController tabController;
+  late TabController tabViewController;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabController = TabController(length: 2, vsync: this);
+    tabViewController = TabController(length: 2, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
-    // 27.6.h 235 height
-    // 41.3.w 162 width
+    return buildScreenContent();
+  }
+
+  SafeArea buildScreenContent() {
     return SafeArea(
       bottom: false,
       child: Column(
         children: [
           buildBrowseAppBar(),
           SizedBox(
-            height: 2.4.h, // 20
+            height: 1.77.h, // 15
           ),
           buildBrowseTabBar(),
           buildTabBarView()
@@ -45,7 +46,7 @@ class _LibraryScreenState extends State<LibraryScreen> with TickerProviderStateM
   Expanded buildTabBarView() {
     return Expanded(
       child: TabBarView(
-        controller: tabController,
+        controller: tabViewController,
         children: buildViews(),
       ),
     );
@@ -58,13 +59,13 @@ class _LibraryScreenState extends State<LibraryScreen> with TickerProviderStateM
     ];
   }
 
-  MangasGrid buildMangasView() => MangasGrid();
+  MangasGrid buildMangasView() => const MangasGrid();
 
-  AnimesGrid buildAnimesView() => AnimesGrid();
+  AnimesGrid buildAnimesView() => const AnimesGrid();
 
   TabBar buildBrowseTabBar() {
     return TabBar(
-      controller: tabController,
+      controller: tabViewController,
       dividerColor: Colors.transparent,
       labelColor: AppColors.brightGreen,
       automaticIndicatorColorAdjustment: false,
@@ -125,7 +126,7 @@ class _LibraryScreenState extends State<LibraryScreen> with TickerProviderStateM
 
   Padding buildBrowseAppBar() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
