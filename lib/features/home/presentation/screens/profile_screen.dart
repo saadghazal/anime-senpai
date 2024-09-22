@@ -15,36 +15,40 @@ class ProfileScreen extends StatelessWidget {
       bottom: false,
       child: SizedBox(
         width: double.maxFinite,
-        child: buildProfile(),
+        child: buildProfileScreen(),
       ),
     );
   }
 
-  Widget buildProfile() {
+  Widget buildProfileScreen() {
     return Padding(
       padding: EdgeInsets.only(top: 5.87.h), // 50
       child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            buildProfilePictureAndName(),
-            SizedBox(
-              height: 4.7.h, // 40
-            ),
-            buildSettingsOptionsSection(
-              sectionTitle: 'Profile Settings',
-              sectionOptions: buildProfileSettingsOptions(),
-            ),
-            SizedBox(
-              height: 2.4.h, // 40
-            ),
-            buildSettingsOptionsSection(
-              sectionTitle: 'App Settings',
-              sectionOptions: buildAppSettingsOptions(),
-            ),
-          ],
-        ),
+        child: buildProfileScreenContent(),
       ),
+    );
+  }
+
+  Column buildProfileScreenContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        buildProfilePictureAndName(),
+        SizedBox(
+          height: 4.7.h, // 40
+        ),
+        buildSettingsOptionsSection(
+          sectionTitle: 'Profile Settings',
+          sectionOptions: buildProfileSettingsOptions(),
+        ),
+        SizedBox(
+          height: 2.4.h, // 40
+        ),
+        buildSettingsOptionsSection(
+          sectionTitle: 'App Settings',
+          sectionOptions: buildAppSettingsOptions(),
+        ),
+      ],
     );
   }
 
